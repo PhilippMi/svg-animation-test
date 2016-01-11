@@ -1,34 +1,11 @@
 <html>
 <head>
-<style>
-  img {
-    display: block;
-  }
-  .container {
-    width: 100px;
-  }
-  .icon {
-    height: 100px;
-    background: url("test.svg")  no-repeat right top;
-  }
-
-  .style-indicator {
-    animation: pulse 1s cubic-bezier(.25,0,.75,1) alternate infinite;
-  }
-
-  @keyframes pulse {
-    0% {
-      transform: scale(1.0);
-    }
-    100% {
-      transform: scale(0.8);
-    }
-  }
-</style>
+<link rel="stylesheet" href="base.css">
 </head>
 <body>
 
-<h3>As inlined SVG with inlined CSS</h3>
+<h3>SVG inlined in HTML with CSS animation inlined in the SVG</h3>
+<p>Not working in IE11</p>
 <div class="container">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-18.5 -3.5 22 19">
     <path fill="#a7abb2" fill-rule="evenodd" d="M 0 4 L 12 4 L 12 7 L 0 7 L 0 4 Z M 0 10 L 20 10 L 20 13 L 0 13 L 0 10 Z M 0 16 L 20 16 L 20 19 L 0 19 L 0 16 Z M 0 16" transform="translate(-18.5, -3.5)" />
@@ -46,7 +23,8 @@
   </svg>
 </div>
 
-<h3>As inlined SVG with external CSS</h3>
+<h3>SVG inlined in HTML with CSS animation from CSS stylesheet</h3>
+<p>Not working in IE11</p>
 <div class="container">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-18.5 -3.5 22 19">
     <path fill="#a7abb2" fill-rule="evenodd" d="M 0 4 L 12 4 L 12 7 L 0 7 L 0 4 Z M 0 10 L 20 10 L 20 13 L 0 13 L 0 10 Z M 0 16 L 20 16 L 20 19 L 0 19 L 0 16 Z M 0 16" transform="translate(-18.5, -3.5)" />
@@ -54,15 +32,44 @@
   </svg>
 </div>
 
-<h3>As IMG with inlined CSS</h3>
+<h3>external SVG using &lt;img&gt; with CSS animation inlined in the SVG</h3>
+<p>Not working in IE11 and Firefox</p>
 <img class="container" src="test.svg">
 
-<h3>As IMG with external CSS</h3>
+<h3>external SVG using &lt;img&gt; with CSS animation from CSS stylesheet</h3>
+<p>Not working in IE11, Firefox, Chrome and Safari</p>
 <img class="container" src="test2.svg">
 
-<h3>As External background with inlined CSS</h3>
+<h3>external SVG as CSS background with CSS animation inlined in the SVG</h3>
+<p>Not working in IE11 and Firefox</p>
 <div class="container">
 <div class="icon"></div>
+</div>
+
+<h3>2 SVGs inlined in HTML with CSS animation on SVG root element from CSS stylesheet</h3>
+<div class="container">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-18.5 -3.5 22 19">
+    <path fill="#a7abb2" fill-rule="evenodd" d="M 0 4 L 12 4 L 12 7 L 0 7 L 0 4 Z M 0 10 L 20 10 L 20 13 L 0 13 L 0 10 Z M 0 16 L 20 16 L 20 19 L 0 19 L 0 16 Z M 0 16" transform="translate(-18.5, -3.5)" />
+  </svg>
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-18.5 -3.5 22 19" class="overlay style-indicator">
+    <circle fill="#f2940a" cx="0" cy="0" r="3.5" />
+  </svg>
+</div>
+
+<h3>2 external SVGs using &lt;img&gt; with CSS animation on SVG root element from CSS stylesheet</h3>
+<div class="container">
+  <img src="menu.svg">
+  <img src="live-indicator.svg" class="overlay style-indicator">
+</div>
+
+<h2>Other SVG animation</h2>
+<p>SVG inlined in HTML with CSS animation from CSS stylesheet</p>
+<div class="container">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" viewBox="-21 -7 29 26">
+    <path fill="#a7abb2" fill-rule="evenodd" d="M 0 4 L 12 4 L 12 7 L 0 7 L 0 4 Z M 0 10 L 20 10 L 20 13 L 0 13 L 0 10 Z M 0 16 L 20 16 L 20 19 L 0 19 L 0 16 Z M 0 16" transform="translate(-18.5, -3.5)" />
+    <circle fill="#f2940a" cx="0" cy="0" r="3.5" />
+    <circle fill="#f2940a" cx="0" cy="0" r="3.5" class="pulse-indicator" />
+  </svg>
 </div>
 
 <body>
